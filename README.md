@@ -6,6 +6,8 @@ This repository contains **MATLAB** code samples for **Zivid**.
 
 - **SampleReadZDF** - This example shows how to import and display a Zivid point cloud from a .ZDF file.
 - **SampleZDF2PLY** - This example shows how to convert a Zivid point cloud from a .ZDF file format to a .PLY file format.
+- **zdfread** - Function for reading a .ZDF file.
+- **zdf2image** - Function for exporting a 2D color image from from a .ZDF file.
 
 ## Instructions
 
