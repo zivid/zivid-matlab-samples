@@ -1,6 +1,6 @@
 function zdf2image(filename, outputformat)
 
-% zdf2image(Filename,OutputFormat)
+% zdf2image(Ffilename, outputformat)
 %
 % Function for exporting a 2D color image from from a .ZDF file.
 %
@@ -53,10 +53,6 @@ imo = permute(imo,[3 2 1]);
 for i=1:3
     im(:,:,i) = imo(:,:,i);
 end
-R = double(im(:,:,1)) / 255;
-G = double(im(:,:,2)) / 255;
-B = double(im(:,:,3)) / 255;
-im = uint8(im);
 
 FilenameOutput = strcat(filename(1:end-3),outputformat);
 imwrite(im,FilenameOutput);

@@ -72,7 +72,8 @@ end
 %% downsample by sum algorithm
 
 % Reshape and sum in first direction
-sumline = @(matrix,dsf) (reshape(nansum(reshape(matrix,dsf,[]),1),size(matrix,1)/dsf,size(matrix,2)));
+% sumline = @(matrix,dsf) (reshape(nansum(reshape(matrix,dsf,[]),1),size(matrix,1)/dsf,size(matrix,2)));
+sumline = @(matrix,dsf) (reshape(sum(reshape(matrix,dsf,[]),1,'omitnan'),size(matrix,1)/dsf,size(matrix,2)));
 % repeat for second direction
 gridsum = @(matrix,dsf) (sumline(sumline(matrix,dsf)',dsf)');
 

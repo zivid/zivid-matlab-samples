@@ -34,7 +34,13 @@
 
 %Read a .ZDF point cloud. The "Zivid3D.zdf" file has to be in the same folder as the "SampleDownsampleZDF" file.
 Filename = 'Zivid3D.zdf';
-[pc,X,Y,Z,R,G,B,Image,Contrast] = zdfread(Filename);
+[X,Y,Z,R,G,B,Image,Contrast] = zdfread(Filename);
+
+% Create a point cloud object
+XYZ(:,:,1) = X;
+XYZ(:,:,2) = Y;
+XYZ(:,:,3) = Z;
+pc=pointCloud(XYZ,'color',double(Image)./255);
 
 % Downsample the point cloud
 [X_new,Y_new,Z_new,Image_new] = downsample(X,Y,Z,Image,Contrast,4);

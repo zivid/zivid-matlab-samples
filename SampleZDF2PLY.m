@@ -36,17 +36,21 @@
 % Read a .ZDF point cloud. The "Zivid3D.zdf" file has to be in the same folder as the "SampleReadZDF" file.
 FilenameZDF = 'Zivid3D.zdf';
 FilenamePLY = 'Zivid3D.ply';
-[pc,X,Y,Z,R,G,B,Image,Contrast] = zdfread(FilenameZDF);
+[X,Y,Z,R,G,B,Image,Contrast] = zdfread(FilenameZDF);
+
+% Create a point cloud
+XYZ(:,:,1) = X;
+XYZ(:,:,2) = Y;
+XYZ(:,:,3) = Z;
 
 % Replace NaNs with Zeros
-XYZ = pc.Location;
 XYZ(isnan(XYZ)) = 0;
 
 % Switch rows and columns
 XYZ = permute(conj(XYZ),[2,1,3]);
 Image = permute(conj(Image),[2,1,3]);
 
-% Create a new point cloud
+% Create a point cloud object
 pc = pointCloud(XYZ,'color',Image);
 
 % Save to a .PLY file format
