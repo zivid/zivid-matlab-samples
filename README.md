@@ -10,6 +10,7 @@ This repository contains **MATLAB** code samples for **Zivid**.
 - **zdfread** - Function for reading a .ZDF file.
 - **zdf2image** - Function for exporting a 2D color image from from a .ZDF file.
 - **downsample** - Function for downsampling a Zivid point cloud.
+
 Note: The functions are independent of any MATLAB toolboxes, while Sample scripts require [**Image Processing Toolbox**](https://se.mathworks.com/products/image.html) and [**Computer Vision Toolbox**](https://se.mathworks.com/products/computer-vision.html).
 
 ## Instructions
