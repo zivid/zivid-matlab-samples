@@ -42,7 +42,6 @@ FilenameCSV = 'Zivid3D.csv';
 X = reshape(X', [], 1);
 Y = reshape(Y', [], 1);
 Z = reshape(Z', [], 1);
-Image = uint8(Image);
 R = reshape(R', [], 1);
 G = reshape(G', [], 1);
 B = reshape(B', [], 1);
