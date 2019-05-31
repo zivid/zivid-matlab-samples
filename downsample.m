@@ -28,65 +28,32 @@ function [X_new, Y_new, Z_new, Image_new] = downsample(X, Y, Z, Image, Contrast,
 % B_new - Downsampled Blue color band from color image (scaled from 0 to 1)
 % Image_new - Downsampled Color image (uint8 - 0 to 255)
 
-% Author: Martin Ingvaldsen
-
-% BSD 3-Clause License
-% 
-% Copyright (c) 2019, Zivid AS
-% All rights reserved.
-% 
-% Redistribution and use in source and binary forms, with or without
-% modification, are permitted provided that the following conditions are met:
-% 
-% 1. Redistributions of source code must retain the above copyright notice, this
-%    list of conditions and the following disclaimer.
-% 
-% 2. Redistributions in binary form must reproduce the above copyright notice,
-%    this list of conditions and the following disclaimer in the documentation
-%    and/or other materials provided with the distribution.
-% 
-% 3. Neither the name of the copyright holder nor the names of its
-%    contributors may be used to endorse or promote products derived from
-%    this software without specific prior written permission.
-% 
-% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-% AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-% IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-% DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-% FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-% DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-% SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-% OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-% OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-%% Check if dsf is ok
+%% Checking if dsf is ok
 [h,w,d] = size(Image);
 
 if mod(dsf,2) ~= 0 || mod(h,dsf) || mod(w,dsf)
     disp('Downsampling factor - dsf has to have one of the following values: 2, 3, 4, 5, 6.\n');
 end
 
-%% downsample by sum algorithm
+%% Downsampling by sum algorithm
 
 % Reshape and sum in first direction
-% sumline = @(matrix,dsf) (reshape(nansum(reshape(matrix,dsf,[]),1),size(matrix,1)/dsf,size(matrix,2)));
 sumline = @(matrix,dsf) (reshape(sum(reshape(matrix,dsf,[]),1,'omitnan'),size(matrix,1)/dsf,size(matrix,2)));
 % repeat for second direction
 gridsum = @(matrix,dsf) (sumline(sumline(matrix,dsf)',dsf)');
 
-%% Do image
+%% Doing image
 
 for i = 1:d
     Image_new(:,:,i) = uint8(gridsum(Image(:,:,i),dsf)/dsf^2);
 end
 
-%% Do contrast for weight
+%% Doing contrast for weight
 
 Contrast(isnan(Z)) = 0;
 contrastWeigth = gridsum(Contrast,dsf);
 
-%% Do weighted downsample on X, Y and Z
+%% Doing weighted downsample on X, Y and Z
 
 X_new = gridsum(X.*Contrast,dsf)./contrastWeigth;
 Y_new = gridsum(Y.*Contrast,dsf)./contrastWeigth;
