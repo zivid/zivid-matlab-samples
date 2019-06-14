@@ -42,18 +42,12 @@ sumline = @(matrix,dsf) (reshape(sum(reshape(matrix,dsf,[]),1,'omitnan'),size(ma
 % repeat for second direction
 gridsum = @(matrix,dsf) (sumline(sumline(matrix,dsf)',dsf)');
 
-%% Doing image
-
 for i = 1:d
     Image_new(:,:,i) = uint8(gridsum(Image(:,:,i),dsf)/dsf^2);
 end
 
-%% Doing contrast for weight
-
 Contrast(isnan(Z)) = 0;
 contrastWeigth = gridsum(Contrast,dsf);
-
-%% Doing weighted downsample on X, Y and Z
 
 X_new = gridsum(X.*Contrast,dsf)./contrastWeigth;
 Y_new = gridsum(Y.*Contrast,dsf)./contrastWeigth;

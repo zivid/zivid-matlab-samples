@@ -17,7 +17,7 @@ function [X, Y, Z, R, G, B, im, contrast] = zdfread(filename)
 % im - Color image (uint8 - 0 to 255)
 % contrast - Contrast image / quality image (float)
 
-% Reading color image from rgba_image
+% Reading the color image from rgba_image
 % and spliting in R, G, B normalized matrices
 imo = ncread(filename,'data/rgba_image');
 imo = permute(imo,[3 2 1]);
@@ -31,7 +31,7 @@ B = double(im(:,:,3)) / 255;
 
 im = uint8(im);
 
-% Reading pointcloud data and create X, Y, Z matrices
+% Reading the pointcloud data and create X, Y, Z matrices
 pco = ncread(filename,'data/pointcloud');
 pco = permute(pco,[3 2 1]);
 
