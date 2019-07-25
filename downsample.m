@@ -47,10 +47,10 @@ for i = 1:d
 end
 
 Contrast(isnan(Z)) = 0;
-contrastWeigth = gridsum(Contrast,dsf);
+contrastWeight = gridsum(Contrast,dsf);
 
-X_new = gridsum(X.*Contrast,dsf)./contrastWeigth;
-Y_new = gridsum(Y.*Contrast,dsf)./contrastWeigth;
-Z_new = gridsum(Z.*Contrast,dsf)./contrastWeigth;
+X_new = gridsum(X.*Contrast,dsf)./contrastWeight;
+Y_new = gridsum(Y.*Contrast,dsf)./contrastWeight;
+Z_new = gridsum(Z.*Contrast,dsf)./contrastWeight;
 
 end
