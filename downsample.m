@@ -8,9 +8,6 @@ function [X_new, Y_new, Z_new, Image_new] = downsample(X, Y, Z, Image, Contrast,
 % X - x data in a matrix
 % Y - y data in a matrix
 % Z - z data in a matrix
-% R - Red color band from color image (scaled from 0 to 1)
-% G - Green color band from color image (scaled from 0 to 1)
-% B - Blue color band from color image (scaled from 0 to 1)
 % Image - Color image (uint8 - 0 to 255)
 % Contrast - Contrast image / quality image (float)
 % dsf - Downsampling factor (values: 1,2,3,4,5,6) represents the
@@ -19,13 +16,9 @@ function [X_new, Y_new, Z_new, Image_new] = downsample(X, Y, Z, Image, Contrast,
 % 3 - one-third, 4 one-quarter, etc.
 %
 % OUTPUT:
-% pc_new - Downsampled Pointcloud (for use by pcshow and other MATLAB specific functions)
 % X_new - Downsampled x data in a matrix
 % Y_new - Downsampled y data in a matrix
 % Z_new - Downsampled z data in a matrix
-% R_new - Downsampled Red color band from color image (scaled from 0 to 1)
-% G_new - Downsampled Green color band from color image (scaled from 0 to 1)
-% B_new - Downsampled Blue color band from color image (scaled from 0 to 1)
 % Image_new - Downsampled Color image (uint8 - 0 to 255)
 
 %% Checking if dsf is ok
