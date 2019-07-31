@@ -21,18 +21,18 @@ function [X_new, Y_new, Z_new, Image_new] = downsample(X, Y, Z, Image, Contrast,
 % Z_new - Downsampled z data in a matrix
 % Image_new - Downsampled Color image (uint8 - 0 to 255)
 
-%% Checking if dsf is ok
+%% Checking if dsf is ok.
 [h,w,d] = size(Image);
 
 if mod(dsf,2) ~= 0 || mod(h,dsf) || mod(w,dsf)
     disp('Downsampling factor - dsf has to have one of the following values: 2, 3, 4, 5, 6.\n');
 end
 
-%% Downsampling by sum algorithm
+%% Downsampling by sum algorithm.
 
-% Reshape and sum in first direction
+% Reshape and sum in first direction.
 sumline = @(matrix,dsf) (reshape(sum(reshape(matrix,dsf,[]),1,'omitnan'),size(matrix,1)/dsf,size(matrix,2)));
-% repeat for second direction
+% repeat for second direction.
 gridsum = @(matrix,dsf) (sumline(sumline(matrix,dsf)',dsf)');
 
 for i = 1:d
