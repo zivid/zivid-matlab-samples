@@ -17,11 +17,11 @@ Note: The functions are independent of any MATLAB toolboxes, while sample script
 
 ## Instructions
 
-1. Download and install [**Zivid Software**](https://www.zivid.com/downloads)
-Note: The version tested with Zivid cameras is 1.2.0.
+1. [**Install Zivid Software**](https://www.zivid.com/downloads).
+Note: The version tested with Zivid cameras is 1.4.0.
 
-2. Download and install [**MATLAB**](https://se.mathworks.com/products/matlab.html) software.
-Note: The version tested with Zivid cameras is 2018a.
+2. [**Install MATLAB** Software](https://se.mathworks.com/products/matlab.html).
+Note: The version tested with Zivid cameras is 2019a.
 
 3. Launch MATLAB.
 
