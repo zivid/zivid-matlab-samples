@@ -1,4 +1,4 @@
-% Convert ZDF point cloud to CSV format.
+% Convert ZDF point cloud to TXT format.
 
 % The "Zivid3D.zdf" file has to be in the same folder as the "ReadZDF" file.
 FilenameZDF = 'Zivid3D.zdf';

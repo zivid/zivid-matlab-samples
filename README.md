@@ -4,11 +4,11 @@ This repository contains **MATLAB** code samples for **Zivid**.
 
 ## Samples list
 
-- [**ReadZDF**](https://github.com/zivid/matlab-samples/blob/master/ReadZDF.m) - This example shows how to import and display a Zivid point cloud from a .ZDF file.
-- [**ZDF2PLY**](https://github.com/zivid/matlab-samples/blob/master/ZDF2PLY.m) - This example shows how to convert a Zivid point cloud from a .ZDF file format to a .PLY file format.
-- [**ZDF2CSV**](https://github.com/zivid/matlab-samples/blob/master/ZDF2CSV.m) - This example shows how to convert a Zivid point cloud from a .ZDF file format to a .CSV file format.
-- [**ZDF2TXT**](https://github.com/zivid/matlab-samples/blob/master/ZDF2TXT.m) - This example shows how to convert a Zivid point cloud from a .ZDF file format to a .TXT file format.
-- [**DownsamplePointCloud**](https://github.com/zivid/matlab-samples/blob/master/DownsamplePointCloud.m) - This example shows how to import a Zivid point cloud from a .ZDF file and downsample it.
+- [**ReadZDF**](https://github.com/zivid/matlab-samples/blob/master/ReadZDF.m) - Import ZDF point cloud.
+- [**ZDF2PLY**](https://github.com/zivid/matlab-samples/blob/master/ZDF2PLY.m) - Convert ZDF point cloud to PLY file format.
+- [**ZDF2CSV**](https://github.com/zivid/matlab-samples/blob/master/ZDF2CSV.m) - Convert ZDF point cloud to CSV format.
+- [**ZDF2TXT**](https://github.com/zivid/matlab-samples/blob/master/ZDF2TXT.m) - Convert ZDF point cloud to TXT format.
+- [**DownsamplePointCloud**](https://github.com/zivid/matlab-samples/blob/master/DownsamplePointCloud.m) - Import ZDF point cloud and downsample it.
 - [**zdfread**](https://github.com/zivid/matlab-samples/blob/master/zdfread.m) - Function for reading a .ZDF file.
 - [**zdf2image**](https://github.com/zivid/matlab-samples/blob/master/zdf2image.m) - Function for exporting a 2D color image from from a .ZDF file.
 - [**downsample**](https://github.com/zivid/matlab-samples/blob/master/downsample.m) - Function for downsampling a Zivid point cloud.
