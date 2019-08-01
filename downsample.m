@@ -24,8 +24,8 @@ function [X_new, Y_new, Z_new, Image_new] = downsample(X, Y, Z, Image, Contrast,
 %% Checking if dsf is ok.
 [h,w,d] = size(Image);
 
-if mod(dsf,2) ~= 0 || mod(h,dsf) || mod(w,dsf)
-    disp('Downsampling factor - dsf has to have one of the following values: 2, 3, 4, 5, 6.\n');
+if mod(h,dsf) || mod(w,dsf)
+    disp('Downsampling factor has to be divisible by the point cloud width (1920) and height (1200) of the input point cloud, e.g. 2, 3, 4, 5, 6.\n');
 end
 
 %% Downsampling by sum algorithm.
