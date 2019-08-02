@@ -4,14 +4,14 @@ This repository contains **MATLAB** code samples for **Zivid**.
 
 ## Samples list
 
-- [**ReadZDF**](ReadZDF.m) - Import ZDF point cloud.
-- [**ZDF2PLY**](ZDF2PLY.m) - Convert ZDF point cloud to PLY file format.
-- [**ZDF2CSV**](ZDF2CSV.m) - Convert ZDF point cloud to CSV format.
-- [**ZDF2TXT**](ZDF2TXT.m) - Convert ZDF point cloud to TXT format.
-- [**DownsamplePointCloud**](DownsamplePointCloud.m) - Import ZDF point cloud and downsample it.
-- [**zdfread**](zdfread.m) - Function for reading a .ZDF file.
-- [**zdf2image**](zdf2image.m) - Function for exporting a 2D color image from from a .ZDF file.
-- [**downsample**](downsample.m) - Function for downsampling a Zivid point cloud.
+- [**ReadZDF**](https://github.com/zivid/matlab-samples/blob/master/ReadZDF.m) - Import ZDF point cloud.
+- [**ZDF2PLY**](https://github.com/zivid/matlab-samples/blob/master/ZDF2PLY.m) - Convert ZDF point cloud to PLY file format.
+- [**ZDF2CSV**](https://github.com/zivid/matlab-samples/blob/master/ZDF2CSV.m) - Convert ZDF point cloud to CSV format.
+- [**ZDF2TXT**](https://github.com/zivid/matlab-samples/blob/master/ZDF2TXT.m) - Convert ZDF point cloud to TXT format.
+- [**DownsamplePointCloud**](https://github.com/zivid/matlab-samples/blob/master/DownsamplePointCloud.m) - Import ZDF point cloud and downsample it.
+- [**zdfread**](https://github.com/zivid/matlab-samples/blob/master/zdfread.m) - Function for reading a .ZDF file.
+- [**zdf2image**](https://github.com/zivid/matlab-samples/blob/master/zdf2image.m) - Function for exporting a 2D color image from from a .ZDF file.
+- [**downsample**](https://github.com/zivid/matlab-samples/blob/master/downsample.m) - Function for downsampling a Zivid point cloud.
 
 Note: The functions are independent of any MATLAB toolboxes, while sample scripts require [**Image Processing Toolbox**](https://se.mathworks.com/products/image.html) and [**Computer Vision Toolbox**](https://se.mathworks.com/products/computer-vision.html).
 
