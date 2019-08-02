@@ -31,4 +31,4 @@ Note: The version tested with Zivid cameras is 2019a.
 If you need assistance with using Zivid cameras, visit our Knowledge Base at [https://help.zivid.com/](https://help.zivid.com/) or contact us at [customersuccess@zivid.com](mailto:customersuccess@zivid.com).
 
 ## Licence
-Zivid Samples are distributed under the [BSD license](LICENSE).
+Zivid Samples are distributed under the [BSD license](https://github.com/zivid/matlab-samples/blob/master/LICENSE).
