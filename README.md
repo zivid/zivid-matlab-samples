@@ -18,7 +18,7 @@ Note: The functions are independent of any MATLAB toolboxes, while sample script
 ## Instructions
 
 1. [**Install Zivid Software**](https://www.zivid.com/downloads).
-Note: The version tested with Zivid cameras is 1.5.0.
+Note: The version tested with Zivid cameras is 1.6.0.
 
 2. [**Install MATLAB Software**](https://se.mathworks.com/products/matlab.html).
 Note: The version tested with Zivid cameras is 2019a.
