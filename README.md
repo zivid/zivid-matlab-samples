@@ -4,7 +4,7 @@ This repository contains **MATLAB** code samples for **Zivid**.
 
 ## Samples list
 
-- [**ReadZDF**](https://github.com/zivid/matlab-samples/blob/master/ReadZDF.m) - Import ZDF point cloud.
+- [**ReadIterateZDF**](https://github.com/zivid/matlab-samples/blob/master/ReadIterateZDF.m) - Import ZDF point cloud.
 - [**ZDF2PLY**](https://github.com/zivid/matlab-samples/blob/master/ZDF2PLY.m) - Convert ZDF point cloud to PLY file format.
 - [**ZDF2CSV**](https://github.com/zivid/matlab-samples/blob/master/ZDF2CSV.m) - Convert ZDF point cloud to CSV format.
 - [**ZDF2TXT**](https://github.com/zivid/matlab-samples/blob/master/ZDF2TXT.m) - Convert ZDF point cloud to TXT format.
