@@ -1,11 +1,11 @@
-function [X, Y, Z, R, G, B, im, contrast] = zdfread(filename)
+function [X, Y, Z, R, G, B, Image, Contrast] = zdfread(Filename)
 
-% [X, Y, Z, R, G, B, im, contrast] = zdfread(filename)
+% [X, Y, Z, R, G, B, Image, Contrast] = zdfread(Filename)
 %
 % Function for reading .ZDF files
 %
 % INPUT:
-% filename - Full folder and filename to ZDF file
+% Filename - File to read
 %
 % OUTPUT:
 % X - x data in a matrix
@@ -14,32 +14,40 @@ function [X, Y, Z, R, G, B, im, contrast] = zdfread(filename)
 % R - Red color band from color image (scaled from 0 to 1)
 % G - Green color band from color image (scaled from 0 to 1)
 % B - Blue color band from color image (scaled from 0 to 1)
-% im - Color image (uint8 - 0 to 255)
-% contrast - Contrast image / quality image (float)
+% Image - Color image (uint8 - 0 to 255)
+% Contrast - Contrast image / quality image (float)
 
-% Reading the color image from rgba_image
-% and spliting in R, G, B normalized matrices.
-imo = ncread(filename,'data/rgba_image');
-imo = permute(imo,[3 2 1]);
-for i=1:3
-    im(:,:,i) = imo(:,:,i);
+try
+    if strcmp(Filename(end-3:end),'.zdf')
+        
+        disp(['Reading ',sprintf('%s',Filename),' point cloud'])
+        
+        % Reading the color image from rgba_image
+        % and spliting in R, G, B normalized matrices.
+        RGBA = ncread(Filename,'data/rgba_image');
+        RGBA = permute(RGBA,[3 2 1]);
+
+        R = double(RGBA(:,:,1)) / 255;
+        G = double(RGBA(:,:,2)) / 255;
+        B = double(RGBA(:,:,3)) / 255;
+
+        Image = uint8(RGBA(:,:,1:3));
+
+        % Reading the pointcloud data and creating X, Y, Z matrices.
+        Pointcloud = ncread(Filename,'data/pointcloud');
+        Pointcloud = permute(Pointcloud,[3 2 1]);
+
+        X = Pointcloud(:,:,1);
+        Y = Pointcloud(:,:,2);
+        Z = Pointcloud(:,:,3);
+
+        % Reading the contrast / quality data.
+        Contrast = ncread(Filename,'data/contrast')';
+    else
+        disp('Input file is not in ZDF format')
+    end
+catch ME
+    throw(ME)
 end
-
-R = double(im(:,:,1)) / 255;
-G = double(im(:,:,2)) / 255;
-B = double(im(:,:,3)) / 255;
-
-im = uint8(im);
-
-% Reading the pointcloud data and create X, Y, Z matrices.
-pco = ncread(filename,'data/pointcloud');
-pco = permute(pco,[3 2 1]);
-
-X = pco(:,:,1);
-Y = pco(:,:,2);
-Z = pco(:,:,3);
-
-% Reading the contrast / quality data.
-contrast = ncread(filename,'data/contrast')';
 
 end
