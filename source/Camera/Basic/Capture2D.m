@@ -14,19 +14,19 @@ try
     frame2D = camera.Capture2D(settings2D);
 
     disp('Get RGBA8 image from Frame2D');
-    image = NET.invokeGenericMethod(frame2D,'Image',{'Zivid.NET.RGBA8'});
+    image2D = NET.invokeGenericMethod(frame2D,'Image',{'Zivid.NET.RGBA8'});
 
-    disp(['Image Width: ',  num2str(image.Width), ' Height: ',  num2str(image.Height)]);
-    disp(['Pixel (0, 0): R=', num2str(image.Item(1).r), ', G=', num2str(image.Item(1).g), ', B=', num2str(image.Item(1).b), ', A=', num2str(image.Item(1).a)]);
+    disp(['Image Width: ',  num2str(image2D.Width), ' Height: ',  num2str(image2D.Height)]);
+    disp(['Pixel (0, 0): R=', num2str(image2D.Item(0).r), ', G=', num2str(image2D.Item(0).g), ', B=', num2str(image2D.Item(0).b), ', A=', num2str(image2D.Item(0).a)]);
 
-    byteArray = uint8(image.ToArray);
+    byteArray = uint8(image2D.ToArray);
     disp(['First four bytes:  [0]: ',num2str(byteArray(1)),', [1]: ',num2str(byteArray(2)),', [2]: ',num2str(byteArray(3)),', [3]: ',num2str(byteArray(4))]);
 
     resultFile = 'image.png';
     disp(['Saving the image to: ' resultFile]);
-    image.Save(resultFile);
+    image2D.Save(resultFile);
 
-    imshow(convertImageNet2Matlab(image));
+    imshow(convertImageNet2Matlab(image2D));
 
 catch ex
 
@@ -34,9 +34,9 @@ catch ex
 
 end
 
-function matlabImage = convertImageNet2Matlab(image)
+function matlabImage = convertImageNet2Matlab(image2D)
 
-    % matlabImage = convertImageNet2Matlab(image)
+    % matlabImage = convertImageNet2Matlab(image2D)
     %
     % Convert Zivid.NET.Image to matlab image
     %
@@ -46,7 +46,7 @@ function matlabImage = convertImageNet2Matlab(image)
     % OUTPUT:
     % matlabImage - image matrix (1200,1900,3)
 
-    matlabImage = permute(reshape(uint8(image.ToArray),4,image.Width,image.Height),[3,2,1]);
+    matlabImage = permute(reshape(uint8(image2D.ToArray),[],image2D.Width,image2D.Height),[3,2,1]);
     matlabImage = matlabImage(:,:,1:3);
 
 end

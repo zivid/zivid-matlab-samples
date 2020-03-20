@@ -9,7 +9,7 @@ try
     frame = camera.Capture();
 
     resultFile = 'result.zdf';
-    disp(['Saving frame to file: ', resultFile]);    
+    disp(['Saving frame to file:', resultFile]);    
 	frame.Save(resultFile);
 
 catch ex
