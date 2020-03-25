@@ -1,5 +1,5 @@
 try
-    % Adding directory that contains zividApplication and connectCamera to search path.
+    % Adding directory that contains zividApplication to search path.
     addpath(genpath([fileparts(fileparts(fileparts(pwd))),filesep,'Camera',filesep,'Basic']));
 
     app = zividApplication;
@@ -12,7 +12,7 @@ try
     disp(['Initializing camera emulation using file: ', zdfFile]);
     camera = app.CreateFileCamera(zdfFile);
 
-    disp('Capture a frame');
+    disp('Capturing a frame');
     frame = camera.Capture();
 
     disp('Display the frame');
@@ -21,6 +21,7 @@ try
     visualizer.ResetToFit();
 
     disp('Run the visualizer. Block until window closes');
+    disp('Note: It is not possible to run the Zivid visualizer repeatedly in Matlab. You have to restart Matlab to call the visualizer again.');
     visualizer.Run();
 
 catch ex
