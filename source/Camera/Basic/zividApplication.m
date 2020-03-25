@@ -21,6 +21,8 @@ function application = zividApplication(folder)
         NET.addAssembly([folder,'\ZividNET.dll']);
         NET.addAssembly([folder,'\ZividVis3DNET.dll']);
         import Zivid.*;
+        import Zivid.NET.CaptureAssistant.*;
+        import Zivid.NET.HandEye.*;
         ZIVID_APPLICATION = Zivid.NET.Application;
     end
 
