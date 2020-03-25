@@ -27,7 +27,7 @@ try
     image2D.Save(resultFile);
 
     imshow(convertImageNet2Matlab(image2D));
-    
+
     disp('Disconnecting from camera')
     camera.Disconnect;
 

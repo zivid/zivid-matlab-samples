@@ -25,7 +25,7 @@ try
     disp(['K3 = ', num2str(camera.Intrinsics.Distortion.K3)]);
     disp(['P1 = ', num2str(camera.Intrinsics.Distortion.P1)]);
     disp(['P2 = ', num2str(camera.Intrinsics.Distortion.P2)]);
-    
+
     disp('Disconnecting from camera')
     camera.Disconnect;
 

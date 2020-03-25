@@ -18,10 +18,10 @@ try
     resultFile = 'result.zdf';
     disp(['Saving frame to file: ' resultFile]);
     frame.Save(resultFile);
-    
+
     disp('Disconnecting from camera')
     camera.Disconnect;
-    
+
 catch ex
 
     disp(['Error: ' ex.message]);
