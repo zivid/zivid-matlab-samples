@@ -5,12 +5,12 @@ try
     disp(['Initializing camera emulation using file: ', zdfFile]);
     camera = app.CreateFileCamera(zdfFile);
 
-    disp('Capture a frame');
+    disp('Capturing a frame');
     frame = camera.Capture();
 
     resultFile = 'result.zdf';
-    disp(['Saving frame to file:', resultFile]);    
-	frame.Save(resultFile);
+    disp(['Saving frame to file: ', resultFile]);
+    frame.Save(resultFile);
 
 catch ex
 
