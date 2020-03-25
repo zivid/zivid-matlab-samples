@@ -32,6 +32,9 @@ try
     disp('Note: It is not possible to run the Zivid visualizer repeatedly in Matlab. You have to restart Matlab to call the visualizer again.');
     visualizer.Run();
 
+    disp('Disconnecting from camera')
+    camera.Disconnect;
+
 catch ex
 
     disp(['Error: ' ex.message]);
