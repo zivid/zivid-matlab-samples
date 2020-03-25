@@ -1,16 +1,16 @@
 % Read the intrinsic calibration parameters of the Zivid camera (OpenCV model).
 
 try
-    % Adding directory that contains zividApplication and connectCamera to search path.
+    % Adding directory that contains zividApplication to search path.
     addpath(genpath([fileparts(fileparts(pwd)),filesep,'Camera',filesep,'Basic']));
 
     app = zividApplication;
 
     disp('Connecting to camera')
-    camera = connectCamera(app);
+    camera = app.ConnectCamera;
 
     fileNameIntrinsics = 'intrinsics.yml';
-    disp(['Saving camera intrinsics to ', fileNameIntrinsics]);
+    disp(['Saving camera intrinsics to file: ', fileNameIntrinsics]);
     camera.Intrinsics.save(fileNameIntrinsics);
 
     disp(camera.Intrinsics.ToString());
@@ -25,6 +25,9 @@ try
     disp(['K3 = ', num2str(camera.Intrinsics.Distortion.K3)]);
     disp(['P1 = ', num2str(camera.Intrinsics.Distortion.P1)]);
     disp(['P2 = ', num2str(camera.Intrinsics.Distortion.P2)]);
+    
+    disp('Disconnecting from camera')
+    camera.Disconnect;
 
 catch ex
 
