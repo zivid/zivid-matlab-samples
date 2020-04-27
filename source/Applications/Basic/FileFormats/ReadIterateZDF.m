@@ -1,48 +1,48 @@
-% Import ZDF point cloud.
+% This example shows how to read point cloud data from a ZDF file, iterate through it, and extract individual points.
 
-% Adding directory that contains zividApplication to search path.
+% Adding directory that contains zividApplication to search path
 addpath(genpath([fileparts(fileparts(fileparts(fileparts(mfilename('fullpath'))))),filesep,'Camera',filesep,'Basic']));
 
-app = zividApplication;
+zivid = zividApplication;
 
-% The Zivid3D.zdf file has to be in the same folder as this sample script.
-Filename = [char(Zivid.NET.Environment.DataPath), '/Zivid3D.zdf'];
+dataFile = [char(System.Environment.GetFolderPath(System.('Environment+SpecialFolder.CommonApplicationData'))),'/Zivid/Zivid3D.zdf'];
+disp(['Reading ZDF frame from file: ',dataFile]);
+[xyz,rgb,snr] = readZDF(dataFile);
 
-% Reading a .ZDF point cloud.
-[X,Y,Z,R,G,B,Image,Contrast] = zdfread(Filename);
+ptCloud = pointCloud(xyz,'color',rgb);
 
-% Creating a point cloud object.
-XYZ(:,:,1) = X;
-XYZ(:,:,2) = Y;
-XYZ(:,:,3) = Z;
-pc=pointCloud(XYZ,'color',double(Image)./255);
+[height, width,~] = size(ptCloud.Location);
+disp('Point cloud information:');
+disp(['Number of points: ',num2str(ptCloud.Count)]);
+disp(['Height: ',num2str(height)]);
+disp(['Width: ',num2str(width)]);
 
-height = size(pc.Location,1);
-width = size(pc.Location,2);
-
-% Iterating over the point cloud and displaying X, Y, Z, R, G, B, and Contrast
-% for central 10 x 10 pixels
-pixels_to_display = 10;
-for i = (height - pixels_to_display) / 2 + 1:(height + pixels_to_display) / 2 + 1
-    for j = (width - pixels_to_display) / 2 + 1:(width + pixels_to_display) / 2 + 1
-        disp(['Values at pixel (',sprintf('%d',i),' , ',sprintf('%d',j),'): X:',sprintf('%.1f',pc.Location(i,j,1)),' Y:',sprintf('%.1f',pc.Location(i,j,2)),' Z:',sprintf('%.1f',pc.Location(i,j,3)),' R:',sprintf('%d',pc.Color(i,j,1)),' G:',sprintf('%d',pc.Color(i,j,2)),' B:',sprintf('%d',pc.Color(i,j,3)),' Contrast:',sprintf('%.1f',Contrast(i,j))]);
+pixelsToDisplay = 10;
+disp(['Iterating over point cloud and extracting X,Y,Z,R,G,B,and snr for central ',num2str(pixelsToDisplay),' x ',num2str(pixelsToDisplay),' pixels']);
+iStart = (height - pixelsToDisplay) / 2;
+iStop = (height + pixelsToDisplay) / 2;
+jStart = (width - pixelsToDisplay) / 2;
+jStop = (width + pixelsToDisplay) / 2;
+for i = iStart:iStop
+    for j = jStart:jStop
+        disp(['Values at pixel (',num2str(i),' ,',num2str(j),'):  X: ',pad(num2str(ptCloud.Location(i,j,1),'%.1f'),7),' Y: ',pad(num2str(ptCloud.Location(i,j,2),'%.1f'),7),' Z: ',pad(num2str(ptCloud.Location(i,j,3),'%.1f'),7),' R: ',pad(num2str(ptCloud.Color(i,j,1)),7),' G: ',pad(num2str(ptCloud.Color(i,j,2)),7),' B: ',pad(num2str(ptCloud.Color(i,j,3)),7),' snr: ',pad(num2str(snr(i,j),'%.1f'),7)]);
     end
 end
 
-% Displaying the RGB image.
-figure('units','normalized','outerposition',[0 0 1 1])
-imagesc(Image);
-pbaspect([1920 1200 1])
+disp('Visualizing RGB image');
+figure('units','normalized','outerposition',[0 0 1 1]);
+imagesc(rgb);
+pbaspect([width height 1]);
 
-% Displaying the Z component.
-figure('units','normalized','outerposition',[0 0 1 1])
-imagesc(Z);
-pbaspect([1920 1200 1])
-colormap jet
-colorbar
+disp('Visualizing depth map');
+figure('units','normalized','outerposition',[0 0 1 1]);
+imagesc(xyz(:,:,3));
+pbaspect([width height 1]);
+colormap jet;
+colorbar;
 
-% Visualizing the point cloud.
-figure('units','normalized','outerposition',[0 0 1 1])
-pcshow(pc);
+disp('Visualizing point cloud');
+figure('units','normalized','outerposition',[0 0 1 1]);
+pcshow(ptCloud);
 view([0 -90]);
-set(gca, 'visible', 'off')
+set(gca,'visible','off');

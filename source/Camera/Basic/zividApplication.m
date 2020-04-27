@@ -11,15 +11,15 @@ function application = zividApplication(folder)
     % application - Zivid Application
 
     if nargin < 1
-        folder = 'C:\Program Files\Zivid\bin';
+        folder = [getenv('ZIVID_INSTALL_FOLDER'),'\bin'];
     end
 
     global ZIVID_APPLICATION
 
     if isempty(ZIVID_APPLICATION)
         addpath(folder);
-        NET.addAssembly([folder,'\ZividNET.dll']);
-        NET.addAssembly([folder,'\ZividVis3DNET.dll']);
+        NET.addAssembly([folder,'\ZividCoreNET.dll']);
+        NET.addAssembly([folder,'\ZividVisualizationNET.dll']);
         import Zivid.*;
         import Zivid.NET.CaptureAssistant.*;
         import Zivid.NET.HandEye.*;

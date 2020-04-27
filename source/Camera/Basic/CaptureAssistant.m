@@ -1,24 +1,33 @@
+% This example shows how to use Capture Assistant to capture point clouds, with color, from the Zivid camera.
+
 try
-    app = zividApplication; 
+    zivid = zividApplication; 
 
     disp('Connecting to camera')
-    camera = app.ConnectCamera;
+    camera = zivid.ConnectCamera;
 
-    suggestSettingsParameters = Zivid.NET.('CaptureAssistant+SuggestSettingsParameters')(Zivid.NET.Duration.FromMilliseconds(1200),Zivid.NET.('CaptureAssistant+AmbientLightFrequency.none'));
-    disp(['Running Capture Assistant with parameters: ', char(suggestSettingsParameters.ToString())]);
-    settingsList = Zivid.NET.CaptureAssistant.SuggestSettings(camera, suggestSettingsParameters);
+    suggestSettingsParameters = Zivid.NET.CaptureAssistant.SuggestSettingsParameters();
+    suggestSettingsParameters.AmbientLightFrequency = Zivid.NET.CaptureAssistant.('SuggestSettingsParameters+AmbientLightFrequencyOption.none');
+    suggestSettingsParameters.MaxCaptureTime = Zivid.NET.Duration.FromMilliseconds(1200);
 
-    disp('Suggested settings:');
-    for i = 0:settingsList.Count-1
-        disp(settingsList.Item(i).ToString);
-    end
+    disp('Running Capture Assistant with parameters:');
+    disp(char(suggestSettingsParameters.ToString()));
+    settings = Zivid.NET.CaptureAssistant.Assistant.SuggestSettings(camera, suggestSettingsParameters);
 
-    disp('Capturing (and merge) frames using automatically suggested settings');
-    hdrFrame = Zivid.NET.HDR.Capture(camera, settingsList);
+    disp('Settings suggested by Capture Assistant:');
+    disp(settings.Acquisitions.ToString);
+    
+    disp('Manually configuring processing settings (Capture Assistant only suggests acquisition settings)')
+    settings.Processing.Filters.Reflection.Removal.Enabled = true;
+    settings.Processing.Filters.Smoothing.Gaussian.Enabled = true;
+    settings.Processing.Filters.Smoothing.Gaussian.Sigma = 1.5;
 
-    resultFile = 'Result.zdf';
-    disp(['Saving frame to file: ' resultFile]);
-    hdrFrame.Save(resultFile);
+    disp('Capturing frame');
+    frame = camera.Capture(settings);
+
+    dataFile = 'Frame.zdf';
+    disp(['Saving frame to file: ' dataFile]);
+    frame.Save(dataFile);
 
     disp('Disconnecting from camera')
     camera.Disconnect;
