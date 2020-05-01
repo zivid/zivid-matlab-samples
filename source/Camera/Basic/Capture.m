@@ -15,7 +15,7 @@ try
     disp('Capturing a frame');
     frame = camera.Capture;
 
-    resultFile = 'result.zdf';
+    resultFile = 'Result.zdf';
     disp(['Saving frame to file: ' resultFile]);
     frame.Save(resultFile);
 

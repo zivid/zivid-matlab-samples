@@ -16,7 +16,7 @@ try
     disp('Capturing (and merge) frames using automatically suggested settings');
     hdrFrame = Zivid.NET.HDR.Capture(camera, settingsList);
 
-    resultFile = 'result.zdf';
+    resultFile = 'Result.zdf';
     disp(['Saving frame to file: ' resultFile]);
     hdrFrame.Save(resultFile);
 
