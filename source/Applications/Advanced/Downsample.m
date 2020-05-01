@@ -1,7 +1,7 @@
 % Import ZDF point cloud and downsample it.
 
 % The "Zivid3D.zdf" file has to be in the same folder as the "ReadZDF" file.
-Filename = 'Zivid3D.zdf';
+Filename = strcat(char(Zivid.NET.Environment.DataPath), '/Zivid3D.zdf');
 
 % Adding directory that contains zdfread to search path.
 addpath(genpath([fileparts(pwd), filesep, 'Basic']));

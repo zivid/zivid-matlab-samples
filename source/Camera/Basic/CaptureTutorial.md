@@ -163,7 +163,7 @@ settings2D.Brightness = 1.0
 
 Zivid Studio can store the current settings to .yml files. These can be read and applied in the API. You may find it easier to modify the settings in these (human-readable) yaml-files in your preferred editor.
 ```Matlab
-camera.SetSettings(Zivid.NET.Settings("frame_01.yml"));
+camera.SetSettings(Zivid.NET.Settings("Frame01.yml"));
 ```
 
 ## Capture
@@ -193,7 +193,7 @@ image2D = NET.invokeGenericMethod(frame2D,'Image',{'Zivid.NET.RGBA8'})
 
 We can now save our results ([go to source][save-url]).
 ```Matlab
-frame.Save('result.zdf');
+frame.Save('Result.zdf');
 ```
 The API detects which format to use. See [Point Cloud][kb-point_cloud-url] for a list of supported formats.
 
@@ -201,7 +201,7 @@ The API detects which format to use. See [Point Cloud][kb-point_cloud-url] for a
 
 If we captured a 2D image, we can save it ([go to source][save2d-url]).
 ```Matlab
-image2D.Save('result.png');
+image2D.Save('Result.png');
 ```
 
 ## Disconnect

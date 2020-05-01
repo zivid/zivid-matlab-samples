@@ -20,7 +20,7 @@ function [X, Y, Z, R, G, B, Image, Contrast] = zdfread(Filename)
 try
     if strcmp(Filename(end-3:end),'.zdf')
         
-        disp(['Reading ',sprintf('%s',Filename),' point cloud'])
+        disp(['Reading point cloud: ',sprintf('%s',Filename)])
         
         % Reading the color image from rgba_image
         % and spliting in R, G, B normalized matrices.
