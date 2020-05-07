@@ -22,7 +22,7 @@ Note: The sample scripts require [**Image Processing Toolbox**](https://se.mathw
 1. [**Install Zivid Software**](https://www.zivid.com/downloads).
 Note: The version tested with Zivid cameras is 1.8.0.
 
-3. [**Download Zivid Sample Data**](https://zivid.atlassian.net/wiki/spaces/ZividKB/pages/edit-v2/450363393?draftShareId=2fd72323-1c01-4acb-8016-ed74206c4edb).
+3. [**Download Zivid Sample Data**](https://zivid.atlassian.net/wiki/spaces/ZividKB/pages/450363393/Sample+Data).
 
 4. [**Install MATLAB Software**](https://se.mathworks.com/products/matlab.html).
 Note: The version tested with Zivid cameras is 2019a.
