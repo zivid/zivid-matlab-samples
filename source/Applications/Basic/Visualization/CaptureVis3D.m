@@ -1,6 +1,6 @@
 try
     % Adding directory that contains zividApplication to search path.
-    addpath(genpath([fileparts(fileparts(fileparts(pwd))),filesep,'Camera',filesep,'Basic']));
+    addpath(genpath([fileparts(fileparts(fileparts(mfilename('fullpath')))),filesep,'Camera',filesep,'Basic']));
 
     app = zividApplication;
 

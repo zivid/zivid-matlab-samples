@@ -1,10 +1,13 @@
 % Import ZDF point cloud and downsample it.
 
+% Adding directories that contains zividApplication and zdfread to search path.
+addpath(genpath([fileparts(fileparts(fileparts(mfilename('fullpath')))),filesep,'Camera',filesep,'Basic']));
+addpath(genpath([fileparts(fileparts(mfilename('fullpath'))), filesep, 'Basic', filesep, 'FileFormats']));
+
+app = zividApplication;
+
 % The "Zivid3D.zdf" file has to be in the same folder as the "ReadZDF" file.
 Filename = [char(Zivid.NET.Environment.DataPath), '/Zivid3D.zdf'];
-
-% Adding directory that contains zdfread to search path.
-addpath(genpath([fileparts(pwd), filesep, 'Basic']));
 
 % Reading a .ZDF point cloud.
 [X,Y,Z,R,G,B,Image,Contrast] = zdfread(Filename);
