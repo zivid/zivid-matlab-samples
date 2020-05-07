@@ -1,7 +1,7 @@
 try
     app = zividApplication;
 
-    zdfFile = strcat(char(Zivid.NET.Environment.DataPath), '/MiscObjects.zdf');    
+    zdfFile = [char(Zivid.NET.Environment.DataPath), '/MiscObjects.zdf'];
     disp(['Initializing camera emulation using file: ', zdfFile]);
     camera = app.CreateFileCamera(zdfFile);
 
