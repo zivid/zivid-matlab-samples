@@ -6,7 +6,7 @@ addpath(genpath([fileparts(fileparts(fileparts(pwd))),filesep,'Camera',filesep,'
 app = zividApplication;
 
 % The Zivid3D.zdf file has to be in the same folder as this sample script.
-Filename = strcat(char(Zivid.NET.Environment.DataPath), '/Zivid3D.zdf');
+Filename = [char(Zivid.NET.Environment.DataPath), '/Zivid3D.zdf'];
 
 % Reading a .ZDF point cloud.
 [X,Y,Z,R,G,B,Image,Contrast] = zdfread(Filename);
