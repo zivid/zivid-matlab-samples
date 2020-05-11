@@ -22,12 +22,14 @@ Note: The sample scripts require [**Image Processing Toolbox**](https://se.mathw
 1. [**Install Zivid Software**](https://www.zivid.com/downloads).
 Note: The version tested with Zivid cameras is 1.8.0.
 
-2. [**Install MATLAB Software**](https://se.mathworks.com/products/matlab.html).
+3. [**Download Zivid Sample Data**](https://zivid.atlassian.net/wiki/spaces/ZividKB/pages/450363393/Sample+Data).
+
+4. [**Install MATLAB Software**](https://se.mathworks.com/products/matlab.html).
 Note: The version tested with Zivid cameras is 2019a.
 
-3. Launch MATLAB.
+5. Launch MATLAB.
 
-4. Open and run one of the samples.
+6. Open and run one of the samples.
 
 ## Support
 If you need assistance with using Zivid cameras, visit our Knowledge Base at [https://help.zivid.com/](https://help.zivid.com/) or contact us at [customersuccess@zivid.com](mailto:customersuccess@zivid.com).

@@ -2,14 +2,14 @@
 
 try
     % Adding directory that contains zividApplication to search path.
-    addpath(genpath([fileparts(fileparts(pwd)),filesep,'Camera',filesep,'Basic']));
+    addpath(genpath([fileparts(fileparts(fileparts(mfilename('fullpath')))),filesep,'Camera',filesep,'Basic']));
 
     app = zividApplication;
 
     disp('Connecting to camera')
     camera = app.ConnectCamera;
 
-    fileNameIntrinsics = 'intrinsics.yml';
+    fileNameIntrinsics = 'Intrinsics.yml';
     disp(['Saving camera intrinsics to file: ', fileNameIntrinsics]);
     camera.Intrinsics.save(fileNameIntrinsics);
 

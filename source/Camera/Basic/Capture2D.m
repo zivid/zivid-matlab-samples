@@ -22,7 +22,7 @@ try
     byteArray = uint8(image2D.ToArray);
     disp(['First four bytes:  [1]: ',num2str(byteArray(1)),', [2]: ',num2str(byteArray(2)),', [3]: ',num2str(byteArray(3)),', [4]: ',num2str(byteArray(4))]);
 
-    resultFile = 'image.png';
+    resultFile = 'Image.png';
     disp(['Saving image to file: ' resultFile]);
     image2D.Save(resultFile);
 
