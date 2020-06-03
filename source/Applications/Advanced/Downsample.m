@@ -1,102 +1,97 @@
-% Import ZDF point cloud and downsample it.
+% This example shows how to downsample point cloud from ZDF file.
 
-% Adding directories that contains zividApplication and zdfread to search path.
+% Adding directories that contains zividApplication and zdfread to search path
 addpath(genpath([fileparts(fileparts(fileparts(mfilename('fullpath')))),filesep,'Camera',filesep,'Basic']));
-addpath(genpath([fileparts(fileparts(mfilename('fullpath'))), filesep, 'Basic', filesep, 'FileFormats']));
+addpath(genpath([fileparts(fileparts(mfilename('fullpath'))),filesep,'Basic',filesep,'FileFormats']));
 
-app = zividApplication;
+% Clearing variables to enable running the sample multiple times
+clearvars -except zivid;
 
-% The "Zivid3D.zdf" file has to be in the same folder as the "ReadZDF" file.
-Filename = [char(Zivid.NET.Environment.DataPath), '/Zivid3D.zdf'];
+zivid = zividApplication;
 
-% Reading a .ZDF point cloud.
-[X,Y,Z,R,G,B,Image,Contrast] = zdfread(Filename);
+dataFile = [char(System.Environment.GetFolderPath(System.('Environment+SpecialFolder.CommonApplicationData'))),'/Zivid/Zivid3D.zdf'];
+disp(['Reading ZDF frame from file: ',dataFile]);
+[xyz,rgb,snr] = readZDF(dataFile);
 
-% Creating a point cloud object.
-XYZ(:,:,1) = X;
-XYZ(:,:,2) = Y;
-XYZ(:,:,3) = Z;
-pc=pointCloud(XYZ,'color',double(Image)./255);
+pointCloudOriginal = pointCloud(xyz,'color',rgb);
 
-% Downsampling the point cloud.
-[X_new,Y_new,Z_new,Image_new] = downsample(X,Y,Z,Image,Contrast,4);
-XYZ_new(:,:,1) = X_new;
-XYZ_new(:,:,2) = Y_new;
-XYZ_new(:,:,3) = Z_new;
-pc_new = pointCloud(XYZ_new,'color',double(Image_new)./255);
+downsamplingFactor = 4;
+disp(['Downsampling point cloud with factor ',num2str(downsamplingFactor)]);
+[xyzDownsampled,rgbDownsampled] = downsample(xyz,rgb,snr,downsamplingFactor);
 
-% Displaying RGB and Depth images.
-figure('units','normalized','outerposition',[0 0 1 1])
-subplot(2,2,1)
-imagesc(Image);
-subplot(2,2,2)
-imagesc(Image_new);
-subplot(2,2,3)
-imagesc(Z);
-colormap jet
-colorbar
-subplot(2,2,4)
-imagesc(Z_new);
-colormap jet
-colorbar
-pbaspect([1920 1200 1])
+pointCloudDownsampled = pointCloud(xyzDownsampled,'color',rgbDownsampled);
 
-%Visualizing the point clouds.
-figure('units','normalized','outerposition',[0 0 1 1])
-pcshow(pc);
+disp('Visualizing original and downsampled RGB image and depth map');
+figure('units','normalized','outerposition',[0 0 1 1]);
+subplot(2,2,1);
+imagesc(rgb);
+subplot(2,2,2);
+imagesc(rgbDownsampled);
+subplot(2,2,3);
+imagesc(xyz(:,:,3));
+colormap jet;
+colorbar;
+subplot(2,2,4);
+imagesc(xyzDownsampled(:,:,3));
+colormap jet;
+colorbar;
+[height,width,~] = size(rgb);
+pbaspect([width height 1]);
+
+disp('Visualizing original and downsampled point cloud');
+figure('units','normalized','outerposition',[0 0 1 1]);
+pcshow(pointCloudOriginal);
 view([0 -90]);
-set(gca, 'visible', 'off')
-figure('units','normalized','outerposition',[0 0 1 1])
-pcshow(pc_new);
+set(gca,'visible','off');
+figure('units','normalized','outerposition',[0 0 1 1]);
+pcshow(pointCloudDownsampled);
 view([0 -90]);
-set(gca, 'visible', 'off')
+set(gca,'visible','off');
 
-function [X_new, Y_new, Z_new, Image_new] = downsample(X, Y, Z, Image, Contrast, dsf)
+function [xyzDownsampled,rgbDownsampled] = downsample(xyz,rgb,snr,downsamplingFactor)
 
-% [X_new, Y_new, Z_new, Image_new] = downsample(X, Y, Z, Image, Contrast, dsf)
+% [xyzDownsampled,rgbDownsampled] = downsample(xyz,rgb,snr,downsamplingFactor)
 %
-% Function for downsampling a Zivid point cloud
+% Downsample point cloud
 %
 % INPUT:
-% X - x data in a matrix
-% Y - y data in a matrix
-% Z - z data in a matrix
-% Image - Color image (uint8 - 0 to 255)
-% Contrast - Contrast image / quality image (float)
-% dsf - Downsampling factor (values: 1,2,3,4,5,6) represents the
-% denominator of a fraction that represents the size of the downsampled
-% point cloud relative to the original point cloud, e.g. 2 - one-half,
-% 3 - one-third, 4 one-quarter, etc.
+% xyz - XYZ data in a matrix
+% rgb - Color image (uint8 - 0 to 255)
+% snr - Signal-To-Noise in a matrix
+% downsamplingFactor - Downsampling factor (values: 1,2,3,4,5,6)
+% represents the % denominator of a fraction that represents the size of
+% the downsampled point cloud relative to the original point cloud,e.g.
+% 2 - one-half,% 3 - one-third,4 one-quarter,etc.
 %
 % OUTPUT:
-% X_new - Downsampled x data in a matrix
-% Y_new - Downsampled y data in a matrix
-% Z_new - Downsampled z data in a matrix
-% Image_new - Downsampled Color image (uint8 - 0 to 255)
+% xyzDownsampled - Downsampled XYZ data in a matrix
+% rgbDownsampled - Downsampled Color image (uint8 - 0 to 255)
 
-%% Checking if dsf is ok.
-[h,w,d] = size(Image);
+%% Checking if downsamplingFactor is ok
+[height,width,dimension] = size(rgb);
 
-if mod(h,dsf) || mod(w,dsf)
-    disp('Downsampling factor has to be a factor of the point cloud width (1920) and height (1200).\n');
+if mod(height,downsamplingFactor) || mod(width,downsamplingFactor)
+    error(['Downsampling factor has to be a factor of the point cloud width (',num2str(width),') and height (',num2str(height),')']);
 end
 
-%% Downsampling by sum algorithm.
+%% Downsampling by sum algorithm
 
-% Reshape and sum in first direction.
-sumline = @(matrix,dsf) (reshape(sum(reshape(matrix,dsf,[]),1,'omitnan'),size(matrix,1)/dsf,size(matrix,2)));
-% repeat for second direction.
-gridsum = @(matrix,dsf) (sumline(sumline(matrix,dsf)',dsf)');
+% Reshaping and summing in first direction
+sumline = @(matrix,downsamplingFactor) (reshape(sum(reshape(matrix,downsamplingFactor,[]),1,'omitnan'),size(matrix,1)/downsamplingFactor,size(matrix,2)));
+% Repeating for second direction
+gridsum = @(matrix,downsamplingFactor) (sumline(sumline(matrix,downsamplingFactor)',downsamplingFactor)');
 
-for i = 1:d
-    Image_new(:,:,i) = uint8(gridsum(Image(:,:,i),dsf)/dsf^2);
+rgbDownsampled = uint8(zeros(height/downsamplingFactor,width/downsamplingFactor,3));
+for i = 1:dimension
+    rgbDownsampled(:,:,i) = uint8(gridsum(rgb(:,:,i),downsamplingFactor)/downsamplingFactor^2);
 end
 
-Contrast(isnan(Z)) = 0;
-contrastWeight = gridsum(Contrast,dsf);
+snr(isnan(xyz(:,:,1))) = 0;
+snrWeight = gridsum(snr,downsamplingFactor);
 
-X_new = gridsum(X.*Contrast,dsf)./contrastWeight;
-Y_new = gridsum(Y.*Contrast,dsf)./contrastWeight;
-Z_new = gridsum(Z.*Contrast,dsf)./contrastWeight;
+xyzDownsampled = single(zeros(height/downsamplingFactor,width/downsamplingFactor,3));
+for i = 1:3
+    xyzDownsampled(:,:,i) = gridsum(xyz(:,:,i).*snr,downsamplingFactor)./snrWeight;
+end
 
 end

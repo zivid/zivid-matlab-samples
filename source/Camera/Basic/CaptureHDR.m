@@ -1,30 +1,29 @@
+% This example shows how to capture point clouds, with color, from the Zivid camera.
+% For scenes with high dynamic range we combine multiple frames to get an HDR point cloud.
+
 try
-    app = zividApplication;
+    zivid = zividApplication;
 
-    disp('Connecting to camera')
-    camera = app.ConnectCamera;
+    disp('Connecting to camera');
+    camera = zivid.ConnectCamera;
 
-    disp('Recording HDR source images');
-    frames = NET.createGeneric('System.Collections.Generic.List',{'Zivid.NET.Frame'});
-
-    settings = camera.Settings;
-    for iris = [14 21 35]
-        disp(['Capturing frame with iris = ' num2str(iris)]);
-        settings.Iris = iris;
-        camera.SetSettings(settings)
-        frames.Add(camera.Capture());
+    disp('Configuring settings'); 
+    settings = Zivid.NET.Settings();
+    for aperture = [11.31,5.66,2.83]
+        disp(['Adding acquisition with aperture = ' num2str(aperture)]);
+        acquisitionSettings = Zivid.NET.('Settings+Acquisition');
+        acquisitionSettings.Aperture = aperture;
+        settings.Acquisitions.Add(acquisitionSettings);
     end
 
-    disp('Creating HDR frame');
-    hdrFrame = Zivid.NET.HDR.CombineFrames(frames);
+    disp('Capturing frame (HDR)');
+    frame = camera.Capture(settings);
 
-    disp('Saving framese to file:');
-    frames.Item(0).Save('14.zdf');
-    frames.Item(1).Save('21.zdf');
-    frames.Item(2).Save('35.zdf');
-    hdrFrame.Save('HDR.zdf');
+    dataFile = 'Frame.zdf';
+    disp(['Saving frame to file: ',dataFile]);
+    frame.Save(dataFile);
 
-    disp('Disconnecting from camera')
+    disp('Disconnecting from camera');
     camera.Disconnect;
 
 catch ex
