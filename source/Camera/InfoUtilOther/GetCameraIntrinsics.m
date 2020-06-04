@@ -10,7 +10,7 @@ try
     camera = zivid.ConnectCamera;
 
     disp('Getting camera intrinsics');
-    intrinsics = Zivid.NET.Experimental.Calibration.Calibrator.intrinsics(camera);
+    intrinsics = Zivid.NET.Experimental.Calibration.Calibrator.Intrinsics(camera);
 
     disp(intrinsics.ToString);
 
