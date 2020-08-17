@@ -9,7 +9,7 @@ try
     disp('Configuring settings');
     acquisitionSettings = Zivid.NET.('Settings+Acquisition')();
     acquisitionSettings.Aperture = 5.66;
-    acquisitionSettings.ExposureTime = Zivid.NET.Duration.FromMicroseconds(8333);
+    acquisitionSettings.ExposureTime = Zivid.NET.Duration.FromMicroseconds(6500);
 
     settings = Zivid.NET.Settings();
     settings.Processing.Filters.Outlier.Removal.Enabled = true;

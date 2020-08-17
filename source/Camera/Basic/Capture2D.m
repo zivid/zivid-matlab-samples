@@ -8,11 +8,11 @@ try
 
     disp('Configuring 2D settings');
     acquisitionSettings = Zivid.NET.('Settings2D+Acquisition')();
-    acquisitionSettings.Aperture = 2.83;
-    acquisitionSettings.ExposureTime = Zivid.NET.Duration.FromMicroseconds(10000);
-    acquisitionSettings.Gain = 1.0;
-    acquisitionSettings.Brightness = 1.0;
-    acquisitionSettings.ExposureTime = Zivid.NET.Duration.FromMicroseconds(10000);
+    acquisitionSettings.Aperture = 11.31;
+    acquisitionSettings.ExposureTime = Zivid.NET.Duration.FromMicroseconds(30000);
+    acquisitionSettings.Gain = 2.0;
+    acquisitionSettings.Brightness = 1.80;
+    
 
     settings2D = Zivid.NET.Settings2D();
     settings2D.Processing.Color.Balance.Red = 1.0;
