@@ -34,7 +34,7 @@ Note: The sample scripts require [**Image Processing Toolbox**](https://se.mathw
 ## Instructions
 
 1. [**Install Zivid Software**](https://www.zivid.com/downloads).
-Note: The version tested with Zivid cameras is 2.0.0.
+Note: The version tested with Zivid cameras is 2.1.0.
 
 3. [**Download Zivid Sample Data**](https://zivid.atlassian.net/wiki/spaces/ZividKB/pages/450363393/Sample+Data).
 
