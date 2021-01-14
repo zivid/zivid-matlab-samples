@@ -4,6 +4,16 @@ This repository contains **MATLAB** code samples for **Zivid**.
 
 ![Zivid Image][header-image]
 
+---
+
+*Contents:*
+[**Samples**](#Samples-list) |
+[**Instructions**](#Instructions) |
+[**Support**](#Support) |
+[**Licence**](#Licence)
+
+---
+
 
 ## Samples list
 
