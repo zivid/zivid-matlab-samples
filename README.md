@@ -42,16 +42,16 @@ There are two main categories of samples: **Camera** and **Applications**. The s
   - **Advanced**
     - [**Downsample**][Downsample-url]  - Downsample point cloud from ZDF file.
 
-Note: The sample scripts require [**Image Processing Toolbox**](https://se.mathworks.com/products/image.html) and [**Computer Vision Toolbox**](https://se.mathworks.com/products/computer-vision.html).
+Note: The sample scripts require [**Image Processing Toolbox**][image-processing-toolbox-url] and [**Computer Vision Toolbox**][computer-vision-toolbox-url].
 
 ## Instructions
 
-1. [**Install Zivid Software**](https://www.zivid.com/downloads).
+1. [**Install Zivid Software**][zivid-software-installation-url].
 Note: The samples require Zivid SDK v2 (minor version 2.1 or newer).
 
-3. [**Download Zivid Sample Data**](https://zivid.atlassian.net/wiki/spaces/ZividKB/pages/450363393/Sample+Data).
+3. [**Download Zivid Sample Data**][zivid-sample-data-url].
 
-4. [**Install MATLAB Software**](https://se.mathworks.com/products/matlab.html).
+4. [**Install MATLAB Software**][matlab-url].
 Note: The version tested with Zivid cameras is 2019a.
 
 5. Launch MATLAB.
@@ -59,12 +59,13 @@ Note: The version tested with Zivid cameras is 2019a.
 6. Open and run one of the samples.
 
 ## Support
-If you need assistance with using Zivid cameras, visit our Knowledge Base at [help.zivid.com](https://help.zivid.com/) or contact us at [customersuccess@zivid.com](mailto:customersuccess@zivid.com).
+If you need assistance with using Zivid cameras, visit our [**Knowledge Base**][knowladge-base-url] or contact us at [customersuccess@zivid.com](mailto:customersuccess@zivid.com).
 
 ## Licence
-Zivid Samples are distributed under the [BSD license](https://github.com/zivid/matlab-samples/blob/master/LICENSE).
+Zivid Samples are distributed under the [BSD license][matlab-samples-licence-url].
 
 [header-image]: https://www.zivid.com/hubfs/softwarefiles/images/zivid-generic-github-header.png
+
 [QuickCaptureTutorial-url]: source/Camera/Basic/QuickCaptureTutorial.md
 [CompleteCaptureTutorial-url]: source/Camera/Basic/CaptureTutorial.md
 [Capture-url]: source/Camera/Basic/Capture.m
@@ -74,9 +75,20 @@ Zivid Samples are distributed under the [BSD license](https://github.com/zivid/m
 [CaptureHDR-url]: source/Camera/Basic/CaptureHDR.m
 [zividApplication-url]: source/Camera/Basic/zividApplication.m
 [GetCameraIntrinsics-url]: source/Camera/InfoUtilOther/GetCameraIntrinsics.m
+
 [CaptureFromFileCameraVis3D-url]: source/Applications/Basic/Visualization/CaptureFromFileCameraVis3D.m
 [CaptureVis3D-url]: source/Applications/Basic/Visualization/CaptureVis3D.m
 [readZDF-url]: source/Applications/Basic/FileFormats/readZDF.m
 [ReadIterateZDF-url]: source/Applications/Basic/FileFormats/ReadIterateZDF.m
 [convertZDF-url]: source/Applications/Basic/FileFormats/convertZDF.m
 [Downsample-url]: source/Applications/Advanced/Downsample.m
+
+[matlab-url]: https://se.mathworks.com/products/matlab.html
+[image-processing-toolbox-url]: https://se.mathworks.com/products/image.html
+[computer-vision-toolbox-url]: https://se.mathworks.com/products/computer-vision.html
+
+[knowladge-base-url]: https://support.zivid.com/
+[zivid-software-installation-url]: https://support.zivid.com/latest/academy/getting-started/zivid-software-installation.html
+[zivid-sample-data-url]: https://support.zivid.com/latest/academy/samples/sample-data.html
+
+[matlab-samples-licence-url]: https://github.com/zivid/matlab-samples/blob/master/LICENSE

@@ -108,7 +108,7 @@ There are only two parameters to configure with Capture Assistant:
 
 ### Manual configuration
 
-We may choose to configure settings manually. For more information about what each settings does, please see [Zivid One Camera Settings][kb-camera_settings-url].
+We may choose to configure settings manually. For more information about what each settings does, please see [Zivid One+ Camera Settings][kb-camera_settings-url].
 
 #### Single Acquisition
 
@@ -208,11 +208,11 @@ This tutorial shows how to use the Zivid SDK to connect to, configure, capture, 
 [save-url]: Capture.m#L22-L24
 [disconnect-url]: Capture.m#L27
 [captureassistant-url]: CaptureAssistant.m#L9-L14
-[kb-camera_settings-url]: https://zivid.atlassian.net/wiki/spaces/ZividKB/pages/450265335
+[kb-camera_settings-url]: https://support.zivid.com/latest/academy/camera/settings.html
 [capture2d-url]: Capture2D.m#L24
 [settings2d-url]: Capture2D.m#L10-L21
 [save2d-url]: Capture2D.m#L47-49
 [captureHDR-url]: CaptureAssistant.m#L10-L14
 [filecamera-url]: CaptureFromFile.m#L8-L10
-[kb-point_cloud-url]: https://zivid.atlassian.net/wiki/spaces/ZividKB/pages/520061383
+[kb-point_cloud-url]: https://support.zivid.com/latest/reference-articles/zivid-3d-camera-technology/point-cloud-structure-and-output-formats.html
 [nested-classes-url]: https://se.mathworks.com/help/matlab/matlab_external/nested-classes.html
