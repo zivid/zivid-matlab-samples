@@ -1,5 +1,7 @@
-% This example shows how to capture point clouds, with color, from the Zivid file camera.
+% Capture point clouds, with color, from the Zivid file camera. Currently supported by Zivid One.
+
 % This example can be used without access to a physical camera.
+% The ZFC files for this sample can be found under the main instructions for Zivid samples.
 
 try
     zivid = zividApplication;
@@ -29,6 +31,6 @@ try
 
 catch ex
 
-    disp(['Error: ' ex.message]);
+    throw(ex)
 
 end

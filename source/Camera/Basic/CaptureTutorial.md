@@ -90,7 +90,7 @@ settings = Zivid.NET.CaptureAssistant.Assistant.SuggestSettings(camera, suggestS
 ---
 **Note**
 
-The unconventional implmentation above is due to [limitations in Matlab support of .NET nested classes][nested-classes-url].
+The unconventional implementation above is due to [limitations in Matlab support of .NET nested classes][nested-classes-url].
 
 ---
 
