@@ -1,5 +1,7 @@
-% This example shows how to capture point clouds, with color, from the Zivid file camera,
-% and visualize it. This example can be used without access to a physical camera.
+% Capture point clouds, with color, from the virtual Zivid camera, and visualize it. Currently supported by Zivid One.
+
+% This example can be used without access to a physical camera.
+% The ZFC file for this sample can be found under the main instructions for Zivid samples.
 
 try
     % Adding directory that contains zividApplication to search path
@@ -22,7 +24,7 @@ try
     settings.Processing.Color.Balance.Blue = 1.0;
     acquisitionSettings = Zivid.NET.('Settings+Acquisition')();
     settings.Acquisitions.Add(acquisitionSettings);
-    
+
     settings = Zivid.NET.Settings();
     settings.Acquisitions.Add(acquisitionSettings);
 
@@ -31,7 +33,7 @@ try
 
     disp('Setting up visualization');
     visualizer = Zivid.NET.Visualization.Visualizer();
-    
+
     disp('Visualizing point cloud');
     visualizer.Show(frame);
     visualizer.ShowMaximized();
@@ -43,6 +45,6 @@ try
 
 catch ex
 
-    disp(['Error: ' ex.message]);
+    throw(ex)
 
 end

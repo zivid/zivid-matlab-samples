@@ -1,4 +1,4 @@
-% This example shows how to read intrinsic parameters from the Zivid camera (OpenCV model).
+% Read intrinsic parameters from the Zivid camera (OpenCV model).
 
 try
     % Adding directory that contains zividApplication to search path.
@@ -36,6 +36,6 @@ try
 
 catch ex
 
-    disp(['Error: ' ex.message]);
+    throw(ex)
 
 end

@@ -1,5 +1,6 @@
-% This example shows how to capture point clouds, with color, from the Zivid camera.
-% For scenes with high dynamic range we combine multiple frames to get an HDR point cloud.
+% Capture HDR point clouds, with color, from the Zivid camera.
+
+% For scenes with high dynamic range we combine multiple acquisitions to get an HDR point cloud.
 
 try
     zivid = zividApplication;
@@ -7,10 +8,10 @@ try
     disp('Connecting to camera');
     camera = zivid.ConnectCamera;
 
-    disp('Configuring settings'); 
+    disp('Configuring settings');
     settings = Zivid.NET.Settings();
     for aperture = [11.31,5.66,2.83]
-        disp(['Adding acquisition with aperture = ' num2str(aperture)]);
+        disp(['Adding acquisition with aperture = ',num2str(aperture)]);
         acquisitionSettings = Zivid.NET.('Settings+Acquisition');
         acquisitionSettings.Aperture = aperture;
         settings.Acquisitions.Add(acquisitionSettings);
@@ -28,6 +29,6 @@ try
 
 catch ex
 
-    disp(['Error: ' ex.message]);
+    throw(ex)
 
 end

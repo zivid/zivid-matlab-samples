@@ -1,7 +1,7 @@
-% This example shows how to capture point clouds, with color, from the Zivid camera.
+% Capture point clouds, with color, from the Zivid camera.
 
 try
-    zivid = zividApplication; 
+    zivid = zividApplication;
 
     disp('Connecting to camera');
     camera = zivid.ConnectCamera;
@@ -20,7 +20,7 @@ try
     frame = camera.Capture(settings);
 
     dataFile = 'Frame.zdf';
-    disp(['Saving frame to file: ' dataFile]);
+    disp(['Saving frame to file: ',dataFile]);
     frame.Save(dataFile);
 
     disp('Disconnecting from camera');
@@ -28,6 +28,6 @@ try
 
 catch ex
 
-    disp(['Error: ' ex.message]);
+    throw(ex)
 
 end

@@ -1,4 +1,4 @@
-% This example shows how to capture point clouds, with color, from the Zivid camera, and visualize it.
+% Capture point clouds, with color, from the Zivid camera, and visualize it.
 
 try
     % Adding directory that contains zividApplication to search path
@@ -9,10 +9,10 @@ try
     disp('Connecting to camera');
     camera = zivid.ConnectCamera;
 
-    disp('Configuring settings');    
+    disp('Configuring settings');
     acquisitionSettings = Zivid.NET.('Settings+Acquisition')();
     acquisitionSettings.Aperture = 5.66;
-    
+
     settings = Zivid.NET.Settings();
     settings.Acquisitions.Add(acquisitionSettings);
 
@@ -21,7 +21,7 @@ try
 
     disp('Setting up visualization');
     visualizer = Zivid.NET.Visualization.Visualizer();
-    
+
     disp('Visualizing point cloud');
     visualizer.Show(frame);
     visualizer.ShowMaximized();
@@ -36,6 +36,6 @@ try
 
 catch ex
 
-    disp(['Error: ' ex.message]);
+    throw(ex)
 
 end
