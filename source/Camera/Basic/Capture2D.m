@@ -45,7 +45,7 @@ try
     disp(['Color at pixel (',num2str(pixelRow),',',num2str(pixelCol),'):  R:',num2str(matlabArray(1,1,1)),',  G:',num2str(matlabArray(1,1,2)),',  B:',num2str(matlabArray(1,1,3)),',  A:',num2str(matlabArray(1,1,4))]);
 
     imageFile = 'Image.png';
-    disp(['Saving image to file: ',imageFile]);
+    disp(['Saving 2D color image to file: ',imageFile]);
     image.Save(imageFile);
 
     disp('Visualizing image');

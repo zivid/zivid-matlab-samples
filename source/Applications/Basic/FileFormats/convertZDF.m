@@ -111,7 +111,7 @@ function convertTo2D(inputFileName,extension)
 
     [~, name, ~] = fileparts(inputFileName);
     outputFileName = [name, '.', extension];
-    disp(['Saving image to file: ',outputFileName]);
+    disp(['Saving 2D color image to file: ',outputFileName]);
 
     % Reading ZDF frame from file
     [~, rgb, ~] = readZDF(inputFileName);
