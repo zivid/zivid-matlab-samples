@@ -1,5 +1,7 @@
 % Read intrinsic parameters from the Zivid camera (OpenCV model).
 
+% Note: This example uses experimental SDK features, which may be modified, moved, or deleted in the future without notice.
+
 try
     % Adding directory that contains zividApplication to search path.
     addpath(genpath([fileparts(fileparts(fileparts(mfilename('fullpath')))),filesep,'Camera',filesep,'Basic']));
