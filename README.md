@@ -1,6 +1,6 @@
 # MATLAB samples
 
-This repository contains MATLAB code samples for Zivid SDK v2.6.1. For
+This repository contains matlab code samples for Zivid SDK v2.7.0. For
 tested compatibility with earlier SDK versions, please check out
 [accompanying
 releases](https://github.com/zivid/zivid-matlab-samples/tree/master/../../releases).
@@ -53,9 +53,9 @@ from the camera can be used.
               - [CaptureVis3D](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/Visualization/CaptureVis3D.m) - Capture point clouds, with color, from the Zivid
                 camera, and visualize it.
           - **FileFormats**
+              - [convertZDF](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/FileFormats/convertZDF.m) - convertZDF(inputFileName,outputFileFormat)
               - [ReadIterateZDF](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/FileFormats/ReadIterateZDF.m) - Read point cloud data from a ZDF file, iterate through
                 it, and extract individual points.
-              - [convertZDF](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/FileFormats/convertZDF.m) - convertZDF(inputFileName,outputFileFormat)
               - [readZDF](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/FileFormats/readZDF.m) - \[xyz,rgba,snr\] = readZDF(dataFile) - **Advanced**
           - [Downsample](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Advanced/Downsample.m) - Downsample point cloud from ZDF file.
 
