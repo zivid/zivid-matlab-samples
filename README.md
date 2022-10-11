@@ -1,6 +1,6 @@
 # MATLAB samples
 
-This repository contains matlab code samples for Zivid SDK v2.7.0. For
+This repository contains matlab code samples for Zivid SDK v2.8.0. For
 tested compatibility with earlier SDK versions, please check out
 [accompanying
 releases](https://github.com/zivid/zivid-matlab-samples/tree/master/../../releases).
@@ -71,14 +71,14 @@ from the camera can be used.
 
 See [Create a MATLAB "Hello World" Application With Reference to Zivid
 .NET
-API](https://support.zivid.com/latest/rst/api-reference/samples/matlab/create-a-matlab-hello-world-application-with-reference-to-zivid-dot-net-sdk.html)
+API](https://support.zivid.com/latest/api-reference/samples/matlab/create-a-matlab-hello-world-application-with-reference-to-zivid-dot-net-sdk.html)
 
 ## Support
 
 For more information about the Zivid cameras, please visit our
 [Knowledge Base](https://support.zivid.com/latest). If you run into any
 issues please check out
-[Troubleshooting](https://support.zivid.com/latest/rst/support/troubleshooting.html).
+[Troubleshooting](https://support.zivid.com/latest/support/troubleshooting.html).
 
 ## License
 
