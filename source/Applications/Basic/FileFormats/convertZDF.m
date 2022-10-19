@@ -6,9 +6,9 @@ function convertZDF(inputFileName,varargin)
     % Example: convertZDF('Zivid3D.zdf','ply')
     %
     % Available formats:
-    %     .ply - Polygon File Format
-    %     .csv,.txt - [x,y,z,r,g,b,snr]
-    %     .png,.jpg,.bmp,.tiff - 2D RGB image
+    %     PLY - Polygon File Format
+    %     CSV, TXT - [x,y,z,r,g,b,snr]
+    %     PNG, JPG, BMP, TIFF - 2D RGB image
     %
     % INPUT:
     % inputFileName - ZDF file to convert

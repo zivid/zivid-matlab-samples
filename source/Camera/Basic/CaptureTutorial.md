@@ -153,7 +153,7 @@ settings2D.Acquisitions.Add(acquisitionSettings);
 
 ### From File
 
-Zivid Studio can store the current settings to .yml files. These can be read and applied in the API. You may find it easier to modify the settings in these (human-readable) yaml-files in your preferred editor.
+Zivid Studio can store the current settings to YML files. These can be read and applied in the API. You may find it easier to modify the settings in these (human-readable) YAML files in your preferred editor.
 ```Matlab
 settings = Zivid.NET.Settings('Settings.yml');
 ```
