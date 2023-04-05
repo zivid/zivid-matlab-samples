@@ -27,7 +27,7 @@ try
     visualizer.ShowMaximized();
     visualizer.ResetToFit();
 
-    disp('Running visualizer. Blocking until window closes');
+    disp('Running visualizer. Blocking until window closes.');
     disp('Note: It is not possible to run the Zivid visualizer repeatedly in Matlab. You have to restart Matlab to call the visualizer again.');
     visualizer.Run();
 
