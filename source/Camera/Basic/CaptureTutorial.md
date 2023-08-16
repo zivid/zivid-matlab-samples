@@ -27,7 +27,7 @@ You should have installed Zivid SDK and cloned MATLAB samples. For more details 
 
 Before calling any of the APIs in the Zivid SDK, we have to start up the Zivid Application. This is done through a simple instantiation of the application ([go to source][start_app-url]).
 ```Matlab
-zivid = zividApplication; 
+zivid = zividApplication;
 ```
 
 ## Connect
@@ -45,7 +45,7 @@ camera = zivid.ConnectCamera(Zivid.NET.('CameraInfo.SerialNumber.2020C0DE'));
 ```
 
 ---
-**Note** 
+**Note**
 
 The serial number of your camera is shown in Zivid Studio.
 
@@ -63,16 +63,9 @@ end
 
 You may want to experiment with the SDK, without access to a physical camera. Minor changes are required to keep the sample working ([go to source][filecamera-url]).
 ```Matlab
-fileCamera = [char(System.Environment.GetFolderPath(System.('Environment+SpecialFolder.CommonApplicationData'))),'/Zivid/FileCameraZividOne.zfc'];
+fileCamera = [char(System.Environment.GetFolderPath(System.('Environment+SpecialFolder.CommonApplicationData'))),'/Zivid/FileCameraZivid2M70.zfc'];
 camera = zivid.CreateFileCamera(fileCamera);
 ```
-
----
-**Note**
-
-The quality of the point cloud you get from *FileCameraZividOne.zfc* is not representative of the Zivid One+.
-
----
 
 ## Configure
 
@@ -85,7 +78,7 @@ It can be difficult to know what settings to configure. Luckily we have the Capt
 suggestSettingsParameters = Zivid.NET.CaptureAssistant.SuggestSettingsParameters();
 suggestSettingsParameters.AmbientLightFrequency = Zivid.NET.CaptureAssistant.('SuggestSettingsParameters+AmbientLightFrequencyOption.none');
 suggestSettingsParameters.MaxCaptureTime = Zivid.NET.Duration.FromMilliseconds(1200);
-settings = Zivid.NET.CaptureAssistant.Assistant.SuggestSettings(camera, suggestSettingsParameters);    
+settings = Zivid.NET.CaptureAssistant.Assistant.SuggestSettings(camera, suggestSettingsParameters);
 ```
 ---
 **Note**

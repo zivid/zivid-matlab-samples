@@ -1,6 +1,6 @@
 # MATLAB samples
 
-This repository contains matlab code samples for Zivid SDK v2.9.0. For
+This repository contains matlab code samples for Zivid SDK v2.10.0. For
 tested compatibility with earlier SDK versions, please check out
 [accompanying
 releases](https://github.com/zivid/zivid-matlab-samples/tree/master/../../releases).

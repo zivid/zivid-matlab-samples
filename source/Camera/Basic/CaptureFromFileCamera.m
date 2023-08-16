@@ -7,7 +7,7 @@ try
     zivid = zividApplication;
 
     % This FileCamera file is in Zivid Sample Data. See instructions in README.md.
-    fileCamera = [char(System.Environment.GetFolderPath(System.('Environment+SpecialFolder.CommonApplicationData'))),'/Zivid/FileCameraZividOne.zfc'];
+    fileCamera = [char(System.Environment.GetFolderPath(System.('Environment+SpecialFolder.CommonApplicationData'))),'/Zivid/FileCameraZivid2M70.zfc'];
     disp(['Creating virtual camera using file: ',fileCamera]);
     camera = zivid.CreateFileCamera(fileCamera);
 
