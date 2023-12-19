@@ -1,6 +1,6 @@
 # MATLAB samples
 
-This repository contains matlab code samples for Zivid SDK v2.10.1. For
+This repository contains matlab code samples for Zivid SDK v2.11.0. For
 tested compatibility with earlier SDK versions, please check out
 [accompanying
 releases](https://github.com/zivid/zivid-matlab-samples/tree/master/../../releases).
@@ -32,32 +32,32 @@ from the camera can be used.
 
   - **Camera**
       - **Basic**
-          - [Capture](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Camera/Basic/Capture.m) - Capture point clouds, with color, from the Zivid camera.
-          - [Capture2D](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Camera/Basic/Capture2D.m) - Capture 2D images from the Zivid camera.
-          - [CaptureAssistant](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Camera/Basic/CaptureAssistant.m) - Capture Assistant to capture point clouds, with color,
+          - [Capture](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Camera/Basic/Capture.m) - Capture point clouds, with color, from the Zivid camera.
+          - [Capture2D](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Camera/Basic/Capture2D.m) - Capture 2D images from the Zivid camera.
+          - [CaptureAssistant](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Camera/Basic/CaptureAssistant.m) - Capture Assistant to capture point clouds, with color,
             from the Zivid camera.
-          - [CaptureFromFileCamera](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Camera/Basic/CaptureFromFileCamera.m) - Capture point clouds, with color, from the Zivid file
+          - [CaptureFromFileCamera](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Camera/Basic/CaptureFromFileCamera.m) - Capture point clouds, with color, from the Zivid file
             camera. Currently supported by Zivid One.
-          - [CaptureHDR](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Camera/Basic/CaptureHDR.m) - Capture HDR point clouds, with color, from the Zivid
+          - [CaptureHDR](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Camera/Basic/CaptureHDR.m) - Capture HDR point clouds, with color, from the Zivid
             camera.
-          - [zividApplication](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Camera/Basic/zividApplication.m) - application = zividApplication(folder)
+          - [zividApplication](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Camera/Basic/zividApplication.m) - application = zividApplication(folder)
       - **InfoUtilOther**
-          - [GetCameraIntrinsics](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Camera/InfoUtilOther/GetCameraIntrinsics.m) - Read intrinsic parameters from the Zivid camera (OpenCV
+          - [GetCameraIntrinsics](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Camera/InfoUtilOther/GetCameraIntrinsics.m) - Read intrinsic parameters from the Zivid camera (OpenCV
             model).
   - **Applications**
       - **Basic**
           - **Visualization**
-              - [CaptureFromFileCameraVis3D](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/Visualization/CaptureFromFileCameraVis3D.m) - Capture point clouds, with color, from the virtual
+              - [CaptureFromFileCameraVis3D](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Applications/Basic/Visualization/CaptureFromFileCameraVis3D.m) - Capture point clouds, with color, from the virtual
                 Zivid camera, and visualize it. Currently supported by
                 Zivid One.
-              - [CaptureVis3D](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/Visualization/CaptureVis3D.m) - Capture point clouds, with color, from the Zivid
+              - [CaptureVis3D](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Applications/Basic/Visualization/CaptureVis3D.m) - Capture point clouds, with color, from the Zivid
                 camera, and visualize it.
           - **FileFormats**
-              - [convertZDF](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/FileFormats/convertZDF.m) - convertZDF(inputFileName,outputFileFormat)
-              - [ReadIterateZDF](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/FileFormats/ReadIterateZDF.m) - Read point cloud data from a ZDF file, iterate through
+              - [convertZDF](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Applications/Basic/FileFormats/convertZDF.m) - convertZDF(inputFileName,outputFileFormat)
+              - [ReadIterateZDF](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Applications/Basic/FileFormats/ReadIterateZDF.m) - Read point cloud data from a ZDF file, iterate through
                 it, and extract individual points.
-              - [readZDF](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Basic/FileFormats/readZDF.m) - \[xyz,rgba,snr\] = readZDF(dataFile) - **Advanced**
-          - [Downsample](https://github.com/zivid/zivid-matlab-samples/tree/master//source/Applications/Advanced/Downsample.m) - Downsample point cloud from ZDF file.
+              - [readZDF](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Applications/Basic/FileFormats/readZDF.m) - \[xyz,rgba,snr\] = readZDF(dataFile) - **Advanced**
+          - [Downsample](https://github.com/zivid/zivid-matlab-samples/tree/master/source/Applications/Advanced/Downsample.m) - Downsample point cloud from ZDF file.
 
 ## Installation
 
