@@ -177,7 +177,7 @@ The API detects which format to use. See [Point Cloud][kb-point_cloud-url] for a
 
 If we captured a 2D image, we can save it ([go to source][save2d-url]).
 ```Matlab
-frame2D.ImageRGBA().Save('Image.png');
+frame2D.ImageRGBA_SRGB().Save('Image.png');
 ```
 
 ## Disconnect

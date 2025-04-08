@@ -24,7 +24,7 @@ try
     frame2D = camera.Capture(settings2D);
 
     disp('Getting RGBA image');
-    image = frame2D.ImageRGBA();
+    image = frame2D.ImageRGBA_SRGB();
 
     pixelRow = 100;
     pixelCol = 50;
