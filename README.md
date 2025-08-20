@@ -1,7 +1,3 @@
-> [!Warning]
-> Support for MATLAB has been deprecated.
-> This repository still exists as a reference, but may also be deleted.
-
 # MATLAB samples
 
 This repository contains matlab code samples for Zivid SDK v2.16.0. For
